@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html ng-app="sportravel">
+
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>BarberSW</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/angular-bootstrap-calendar.min.css" />
+    <link rel="stylesheet" href="css/inscription.css" />
+
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+
+    <script src="js/lib/jquery-3.1.1.slim.min.js"></script>
+    <script src="js/lib/tether.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/angular-base64-upload.js"></script>
+
+    <script src="js/lib/moment.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/lib/angular-bootstrap-calendar.min.js"></script>
+    <script src="js/lib/angular-bootstrap-calendar-tpls.min.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-touch.min.js"></script>
+    <script src="js/lib/es.js"></script>
+    <script src="js/lib/date.format.js"></script>
+
+    <script src="js/controllers/inscriptionController.js"></script>
+</head>
+
+<body ng-controller="incriptionController">
+    <body style="background-color: #222; width: 98%">
+
+
+        <div class="row">
+
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="container">
+                    <div class="col-md-6">
+                        <div class="form-area">  
+                            <form role="form" id="FrmIncripcion">
+                                <br style="clear:both">
+                                <h3 style="margin-bottom: 25px; text-align: center;">Formulario de Inscripci&oacute;n</h3>
+                                <div class="form-group">
+                                    <label>Tipo de Documento / Document Type *</label>
+                                    <select class="form-control" required="" id="cmbTipoDocumento">
+                                       
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>N&uacute;mero Documento / Id *</label>
+                                    <input type="number" class="form-control" id="txtNumeroDocumento" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombres / Name *</label>
+                                    <input type="text" class="form-control" id="txtNombres"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos / Last Name *</label>
+                                    <input type="text" class="form-control" id="txtApellidos" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>G&eacute;nero / Gender *</label>
+                                    <select class="form-control" required="" id="cmbGenero">
+                                   
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo de Sangre / Blood Type *</label>
+                                    <select class="form-control" required="" id="cmbTipoSangre">
+                                      
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Factor RH / RH Factor *</label>
+                                    <select class="form-control" required="" id="cmbFactorRH">
+                                      
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha de Nacimiento / Birthdate *</label>
+                                    <input type="text" class="form-control" id="txtFechaNacimiento"   required readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>E-mail *</label>
+                                    <input type="text" class="form-control" id="txtEmail" onblur="validarEmail('txtEmail')">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmar E-mail / Confirm E-Mail *</label>
+                                    <input type="text" class="form-control" id="txtConfirmacionEmail" onblur="validarEmail('txtConfirmacionEmail')" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Pa&iacute;s / Country *</label>
+                                    <select class="form-control" id="cmbCountry">
+                                        <option></option>
+                                        
+
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Departamento / Department *</label>
+                                    <div id="respDepartamento"> 
+                                        <select class="form-control" required="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciudad / City *</label>
+                                    <div id="respCiudad"> 
+                                        <select class="form-control" required="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Direcci&oacute;n / Address </label>
+                                    <input type="text" class="form-control" id="txtDireccion"  >
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefono / Phone </label>
+                                    <input type="number" class="form-control" id="txtTelefono"  >
+                                </div>
+                                <div class="form-group">
+                                    <label>Celular / Cell Phone *</label>
+                                    <input type="number" class="form-control" id="txtCelular" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Empresa / Company *</label>
+                                    <input type="text" class="form-control" id="txtEmpresa" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cargo / Position *</label>
+                                    <input type="text" class="form-control" id="txtCargo"  required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Empresa prestadora de servicios de salud / EPS *</label>
+                                    <input type="text" class="form-control" id="txtEps" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Liga *</label>
+                                    <select class="form-control" required="" id="cmbLeague">
+                                        <option></option>
+                                      
+
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Club *</label>
+                                    <div id="respClub">
+                                        <select class="form-control" required="">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="divOtroClub">
+                                    <label>Cual *</label>
+                                    <input type="text" class="form-control" id="txtOtroClub"  >
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Marca de bicicleta / Bicycle brand *</label>
+                                    <select class="form-control" id="cmbMarca" onchange="validarMarca()">
+                                        
+                                        <option value="Otra">Otra</option>
+
+                                    </select>
+                                </div>
+                                <div class="form-group" id="divOtraMarca">
+                                    <label>Cual *</label>
+                                    <input type="text" class="form-control" id="txtOtraMarca">
+                                </div>
+                                <div class="form-group">
+                                    <label>Prueba / Category *</label>
+                                    <select class="form-control" id="cmbCategoria">
+                                        <option></option>
+                                       
+
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="text" class="form-control" id="txtTotal"  readonly>
+                                </div>
+
+                                <button type="button" id="btnContinuar" name="btnContinuar" class="btn btn-primary pull-right">Continuar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+
+
+
+
+
+
+
+        </div>
+    </body>
+</body>
+
+</html>
